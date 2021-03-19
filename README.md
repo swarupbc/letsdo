@@ -1,16 +1,10 @@
 # letsdo
 
-To Do List Application
+To Do List Application using #Flutter,
 
-## Getting Started
+![Screenshot_1616152699](https://user-images.githubusercontent.com/55395995/111772870-62ae5000-88d3-11eb-988f-95af9881f5b8.png)
 
-This project is a starting point for a Flutter application.
+![Screenshot_1616152839](https://user-images.githubusercontent.com/55395995/111772872-63df7d00-88d3-11eb-8d3d-b6f0346a6690.png)
 
-A few resources to get you started if this is your first Flutter project:
+![Screenshot_1616152893](https://user-images.githubusercontent.com/55395995/111772874-6510aa00-88d3-11eb-85eb-848821aa1c54.png)
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
