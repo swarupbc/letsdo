@@ -5,12 +5,16 @@ class InputFromField extends StatelessWidget {
   final IconData fIcon;
   final bool isPass;
   final TextEditingController tController;
+  final Function valid;
+  final Function saved;
   const InputFromField({
     Key key,
     this.hintText,
     this.fIcon,
     this.isPass = false,
     this.tController,
+    this.valid,
+    this.saved,
   }) : super(key: key);
 
   @override
@@ -21,6 +25,8 @@ class InputFromField extends StatelessWidget {
         vertical: 10.0,
       ),
       child: TextFormField(
+        onSaved: saved,
+        validator: valid,
         controller: tController,
         obscureText: isPass,
         decoration: InputDecoration(

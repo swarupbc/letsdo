@@ -16,7 +16,10 @@ class LoginScreen extends StatelessWidget {
     String pass = prefs.getString('pass');
     await prefs.setBool('log', true);
 
-    if (uName == userNameController.text && pass == passwordController.text) {
+    if (userNameController.text != '' &&
+        passwordController.text != '' &&
+        uName == userNameController.text &&
+        pass == passwordController.text) {
       Navigator.pushReplacement(context,
           MaterialPageRoute(builder: (BuildContext context) => HomeScreen()));
       print(prefs.getString('uName'));

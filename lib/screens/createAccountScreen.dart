@@ -5,10 +5,34 @@ import 'package:letsdo/screens/loginScreen.dart';
 import 'package:letsdo/widgets/InputFormField.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class CreateAccountScreen extends StatelessWidget {
+//For Unit Testing
+
+class UsernameValidator {
+  static String validate(String value) {
+    return value.isEmpty ? 'Username can\'t be empty' : null;
+  }
+}
+
+class PasswordValidator {
+  static String validate(String value) {
+    return value.isEmpty ? 'Password can\'t be empty' : null;
+  }
+}
+//For Unit Testing
+
+class CreateAccountScreen extends StatefulWidget {
+  @override
+  _CreateAccountScreenState createState() => _CreateAccountScreenState();
+}
+
+class _CreateAccountScreenState extends State<CreateAccountScreen> {
   final TextEditingController userNameController = TextEditingController();
+
   final TextEditingController passwordController = TextEditingController();
+
   final TextEditingController cPasswordController = TextEditingController();
+  String _uName;
+  String _password;
 
   createAccount(context) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -50,11 +74,15 @@ class CreateAccountScreen extends StatelessWidget {
                 height: 30.0,
               ),
               InputFromField(
+                valid: UsernameValidator.validate,
+                saved: (value) => _uName = value,
                 tController: userNameController,
                 hintText: 'User Name',
                 fIcon: Icons.person,
               ),
               InputFromField(
+                valid: PasswordValidator.validate,
+                saved: (value) => _password = value,
                 tController: passwordController,
                 hintText: 'Password',
                 fIcon: Icons.lock,
@@ -102,8 +130,10 @@ class CreateAccountScreen extends StatelessWidget {
               ),
               GestureDetector(
                 onTap: () {
-                  if (passwordController.text.trim() ==
-                      cPasswordController.text.trim()) {
+                  if (userNameController.text != '' &&
+                      passwordController.text != '' &&
+                      passwordController.text.trim() ==
+                          cPasswordController.text.trim()) {
                     createAccount(context);
                   } else {
                     return Fluttertoast.showToast(
